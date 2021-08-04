@@ -85,41 +85,50 @@ class _MyHomePageState extends State<MyHomePage> {
       // about me
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(16),
-              child: Text(
-                'about me',
-                style: TextStyle(fontSize: 28),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(8),
-              width: 200.0,
-              height: 200.0,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      fit: BoxFit.fill, image: AssetImage("self.png"))),
-            ),
-            Container(
-              margin: EdgeInsets.all(8),
-              child: Text(
-                'Tomoyuki Hayakawa',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(8),
-              child: Text(
-                '1995年生まれ / 名古屋出身 / 東京都在住 / iOS App Developer',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[profileArea()],
         ),
       ),
     );
   }
+}
+
+Widget profileArea() {
+  return Container(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.all(16),
+          child: Text(
+            'about me',
+            style: TextStyle(fontSize: 28),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.all(8),
+          width: 200.0,
+          height: 200.0,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                  fit: BoxFit.fill, image: AssetImage("self.png"))),
+        ),
+        Container(
+          margin: EdgeInsets.all(8),
+          child: Text(
+            'Tomoyuki Hayakawa',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.all(8),
+          child: Text(
+            '1995年生まれ / 名古屋出身 / 東京都在住 / iOS App Developer',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
+    ),
+  );
 }
