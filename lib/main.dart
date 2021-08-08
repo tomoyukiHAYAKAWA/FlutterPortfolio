@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -42,18 +40,25 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              flipCard(),
-              skilArea(),
-            ],
+        child: Container(
+          width: _size.width,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                _areaTitle("about me"),
+                flipCard(),
+                _areaTitle("skils"),
+                skilArea(),
+                _areaTitle("timeline"),
+              ],
+            ),
           ),
         ),
       ),
@@ -62,11 +67,15 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 Widget flipCard() {
-  return FlipCard(
-    front: profileAreaFlont(),
-    back: profileAreaBack(),
-    direction: FlipDirection.HORIZONTAL,
-    flipOnTouch: true,
+  return Container(
+    height: 380.0,
+    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
+    child: FlipCard(
+      front: profileAreaFlont(),
+      back: profileAreaBack(),
+      direction: FlipDirection.HORIZONTAL,
+      flipOnTouch: true,
+    ),
   );
 }
 
@@ -80,7 +89,6 @@ Widget profileAreaFlont() {
           Radius.circular(25.0),
         ),
       ),
-      margin: EdgeInsets.all(24.0),
       child: Column(
         children: <Widget>[
           Container(
@@ -128,7 +136,6 @@ Widget profileAreaBack() {
           Radius.circular(25.0),
         ),
       ),
-      margin: EdgeInsets.all(24.0),
       child: Column(
         children: <Widget>[
           Container(
@@ -147,29 +154,32 @@ Widget profileAreaBack() {
 
 Widget skilArea() {
   var list = [
-    _generator("AAA"),
-    _generator("BBB"),
-    _generator("CCC"),
-    _generator("DDD"),
+    _cardGenerator("AAA"),
+    _cardGenerator("BBB"),
+    _cardGenerator("CCC"),
+    _cardGenerator("DDD"),
   ];
-  return SizedBox(
-    width: 500.0,
-    height: 240.0,
-    child: Container(
-      alignment: Alignment.center,
-      margin: EdgeInsets.all(24.0),
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: list.length,
-        itemBuilder: (context, index) {
-          return list[index];
-        },
+  return Container(
+    height: 300.0,
+    child: SizedBox(
+      width: 500.0,
+      height: 300.0,
+      child: Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.all(24.0),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: list.length,
+          itemBuilder: (context, index) {
+            return list[index];
+          },
+        ),
       ),
     ),
   );
 }
 
-Widget _generator(String skilText) {
+Widget _cardGenerator(String skilText) {
   return SizedBox(
     width: 190.0,
     height: 240.0,
@@ -188,6 +198,18 @@ Widget _generator(String skilText) {
           )
         ],
       ),
+    ),
+  );
+}
+
+Widget _areaTitle(String areaTitle) {
+  return Container(
+    height: 120.0,
+    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
+    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 0.0),
+    child: Text(
+      areaTitle,
+      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
     ),
   );
 }
