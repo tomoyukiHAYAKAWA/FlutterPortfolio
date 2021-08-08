@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -289,9 +290,12 @@ Widget linksArea() {
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        _linkIconGenerator("GitHubIcon.png", "hoge"),
-        _linkIconGenerator("twitterIcon.png", "hoge"),
-        _linkIconGenerator("facebookIcon.png", "hoge"),
+        _linkIconGenerator(
+            "GitHubIcon.png", "https://github.com/tomoyukiHAYAKAWA"),
+        _linkIconGenerator(
+            "twitterIcon.png", "https://twitter.com/hayakawa_tomoe"),
+        _linkIconGenerator(
+            "facebookIcon.png", "https://www.facebook.com/hayakawatomoyuki"),
       ],
     ),
   );
@@ -304,10 +308,20 @@ Widget _linkIconGenerator(String imageName, String url) {
     width: 120.0,
     height: 120.0,
     child: GestureDetector(
-      onTap: () {},
+      onTap: () {
+        _launchURL(url);
+      },
       child: Image.asset(imageName),
     ),
   );
+}
+
+_launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }
 
 Widget _areaTitle(String areaTitle) {
