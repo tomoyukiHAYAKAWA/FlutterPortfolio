@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   flip_card: ^0.5.0
+  url_launcher: ^6.0.9
   flutter_localizations: # 追加
     sdk: flutter
 
