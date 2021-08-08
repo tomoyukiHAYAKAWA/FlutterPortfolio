@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -45,20 +47,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  flipCard(),
-                  skilArea(),
-                ],
-              ),
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              flipCard(),
+              skilArea(),
+            ],
+          ),
         ),
       ),
     );
@@ -89,7 +85,7 @@ Widget profileAreaFlont() {
         children: <Widget>[
           Container(
             margin:
-                EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
+                EdgeInsets.only(left: 8.0, right: 8.0, top: 20.0, bottom: 0.0),
             padding: EdgeInsets.all(12.0),
             width: 200.0,
             height: 200.0,
@@ -156,26 +152,34 @@ Widget skilArea() {
     _generator("CCC"),
     _generator("DDD"),
   ];
-  return GridView.count(
-      crossAxisCount: 3,
-      shrinkWrap: true,
-      // スクロールさせない
-      primary: false,
-      // physics: NeverScrollableScrollPhysics(),
-      children: list);
+  return SizedBox(
+    width: 500.0,
+    height: 240.0,
+    child: Container(
+      alignment: Alignment.center,
+      margin: EdgeInsets.all(24.0),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: list.length,
+        itemBuilder: (context, index) {
+          return list[index];
+        },
+      ),
+    ),
+  );
 }
 
 Widget _generator(String skilText) {
   return SizedBox(
     width: 190.0,
-    height: 190.0,
+    height: 240.0,
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(25.0),
         ),
       ),
-      margin: EdgeInsets.all(24.0),
+      margin: EdgeInsets.all(12.0),
       child: Column(
         children: <Widget>[
           Text(
