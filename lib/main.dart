@@ -65,7 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 timelineCard("2020年4月〜2021年4月", "社会人1年目",
                     "・株式会社アイスタイルに新卒入社\n・入社に伴って東京都に引っ越す\n・アプリ開発グループiOSチームに配属\n・最初のプロジェクトはログインスキップ対応\n・社内サイネージの開発のためVue.jsを初めて扱う"),
                 timelineCard("2021年4月〜現在", "社会人2年目",
-                    "・徐々に一人でプロジェクトを任されるようになる\n・Flutter開発をしてみたくてDartに手を出してみる")
+                    "・徐々に一人でプロジェクトを任されるようになる\n・Flutter開発をしてみたくてDartに手を出してみる"),
+                _areaTitle("links"),
+                linksArea(),
               ],
             ),
           ),
@@ -276,6 +278,34 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
           ),
         ),
       ],
+    ),
+  );
+}
+
+Widget linksArea() {
+  return Container(
+    alignment: Alignment.center,
+    width: 450.0,
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        _linkIconGenerator("GitHubIcon.png", "hoge"),
+        _linkIconGenerator("twitterIcon.png", "hoge"),
+        _linkIconGenerator("facebookIcon.png", "hoge"),
+      ],
+    ),
+  );
+}
+
+Widget _linkIconGenerator(String imageName, String url) {
+  return Container(
+    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 20.0, bottom: 0.0),
+    padding: EdgeInsets.all(12.0),
+    width: 120.0,
+    height: 120.0,
+    child: GestureDetector(
+      onTap: () {},
+      child: Image.asset(imageName),
     ),
   );
 }
