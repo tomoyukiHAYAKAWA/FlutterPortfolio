@@ -169,7 +169,7 @@ Widget skilArea() {
     _cardGenerator("swift.png", "Swift", "・業務で使用中\n・だいたい4年くらい\n・1番たくたん書いてる"),
     _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・1年\n・便利で好き"),
     _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・半年くらい"),
-    _cardGenerator("sauna.png", "サウナ", "・だいたい週1くらいで行く\n"),
+    _cardGenerator("sauna.png", "サウナ", "・だいたい週1くらいで行く\n・1年"),
   ];
   return Container(
     height: 320.0,
