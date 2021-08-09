@@ -311,10 +311,9 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
 
 Widget linksArea() {
   return Container(
-    alignment: Alignment.center,
-    width: 450.0,
+    width: 500.0,
     child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         _linkIconGenerator(
             "GitHubIcon.png", "https://github.com/tomoyukiHAYAKAWA"),
@@ -329,10 +328,11 @@ Widget linksArea() {
 
 Widget _linkIconGenerator(String imageName, String url) {
   return Container(
+    alignment: Alignment.center,
     margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 20.0, bottom: 0.0),
     padding: EdgeInsets.all(12.0),
-    width: 120.0,
-    height: 120.0,
+    width: 100.0,
+    height: 100.0,
     child: GestureDetector(
       onTap: () {
         _launchURL(url);
