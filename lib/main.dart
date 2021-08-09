@@ -166,10 +166,10 @@ Widget profileAreaBack() {
 
 Widget skilArea() {
   var list = [
-    _cardGenerator("AAA"),
-    _cardGenerator("BBB"),
-    _cardGenerator("CCC"),
-    _cardGenerator("DDD"),
+    _cardGenerator("swift.png", "Swift", "・業務で使用中\n・だいたい4年くらい\n・1番たくたん書いてる"),
+    _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・1年\n・便利で好き"),
+    _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・半年くらい"),
+    _cardGenerator("sauna.png", "サウナ", "・だいたい週1くらいで行く\n"),
   ];
   return Container(
     height: 300.0,
@@ -191,23 +191,38 @@ Widget skilArea() {
   );
 }
 
-Widget _cardGenerator(String skilText) {
+Widget _cardGenerator(
+  String imageName,
+  String skilText,
+  String mainText,
+) {
   return SizedBox(
     width: 190.0,
     height: 240.0,
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(25.0),
+          Radius.circular(12.0),
         ),
       ),
       margin: EdgeInsets.all(12.0),
       child: Column(
         children: <Widget>[
+          Container(
+            width: 80.0,
+            height: 80.0,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fill, image: AssetImage(imageName))),
+          ),
           Text(
             skilText,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          )
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            mainText,
+            style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+          ),
         ],
       ),
     ),
