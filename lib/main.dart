@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'my space',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: "MPLUS1p-Medium",
       ),
       locale: locale,
       localizationsDelegates: const [
@@ -300,7 +301,8 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
                         left: 12.0, right: 12.0, top: 0.0, bottom: 8.0),
                     child: Text(
                       mainText,
-                      style: TextStyle(fontSize: 12.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 12.0),
                     ),
                   ),
                 ],
