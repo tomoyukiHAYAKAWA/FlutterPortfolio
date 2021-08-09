@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'my space',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: "MPLUS1p-Medium",
       ),
       locale: locale,
       localizationsDelegates: const [
@@ -53,10 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                _areaIcon("🚲"),
                 _areaTitle("about me"),
                 flipCard(),
+                _areaIcon("💻"),
                 _areaTitle("skils"),
                 skilArea(),
+                _areaIcon("🦒"),
                 _areaTitle("timeline"),
                 timelineCard(
                   "〜2020年3月",
@@ -67,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     "・株式会社アイスタイルに新卒入社\n・入社に伴って東京都に引っ越す\n・アプリ開発グループiOSチームに配属\n・最初のプロジェクトはログインスキップ対応\n・社内サイネージの開発のためVue.jsを初めて扱う"),
                 timelineCard("2021年4月〜現在", "社会人2年目",
                     "・徐々に一人でプロジェクトを任されるようになる\n・Flutter開発をしてみたくてDartに手を出してみる"),
+                _areaIcon("🔗"),
                 _areaTitle("links"),
                 linksArea(),
               ],
@@ -296,7 +301,8 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
                         left: 12.0, right: 12.0, top: 0.0, bottom: 8.0),
                     child: Text(
                       mainText,
-                      style: TextStyle(fontSize: 12.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 12.0),
                     ),
                   ),
                 ],
@@ -350,10 +356,20 @@ _launchURL(String url) async {
   }
 }
 
+Widget _areaIcon(String icon) {
+  return Container(
+    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 2.0),
+    child: Text(
+      icon,
+      style: TextStyle(fontSize: 32),
+    ),
+  );
+}
+
 Widget _areaTitle(String areaTitle) {
   return Container(
     margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 20.0),
-    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 2.0),
+    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 2.0),
     decoration: BoxDecoration(
       border: Border(
         bottom: BorderSide(
