@@ -166,16 +166,16 @@ Widget profileAreaBack() {
 
 Widget skilArea() {
   var list = [
-    _cardGenerator("AAA"),
-    _cardGenerator("BBB"),
-    _cardGenerator("CCC"),
-    _cardGenerator("DDD"),
+    _cardGenerator("swift.png", "Swift", "・業務で使用中\n・だいたい4年くらい\n・1番たくたん書いてる"),
+    _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・1年\n・便利で好き"),
+    _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・半年くらい"),
+    _cardGenerator("sauna.png", "サウナ", "・だいたい週1くらいで行く\n・1年"),
   ];
   return Container(
-    height: 300.0,
+    height: 320.0,
     child: SizedBox(
-      width: 500.0,
-      height: 300.0,
+      width: 600.0,
+      height: 320.0,
       child: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.all(24.0),
@@ -191,23 +191,49 @@ Widget skilArea() {
   );
 }
 
-Widget _cardGenerator(String skilText) {
+Widget _cardGenerator(
+  String imageName,
+  String skilText,
+  String mainText,
+) {
   return SizedBox(
-    width: 190.0,
-    height: 240.0,
+    width: 220.0,
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(25.0),
+          Radius.circular(12.0),
         ),
       ),
       margin: EdgeInsets.all(12.0),
       child: Column(
         children: <Widget>[
-          Text(
-            skilText,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          )
+          Container(
+            width: 100.0,
+            height: 100.0,
+            margin: EdgeInsets.only(
+                left: 12.0, right: 12.0, top: 12.0, bottom: 12.0),
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fill, image: AssetImage(imageName))),
+          ),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(
+                left: 12.0, right: 12.0, top: 0.0, bottom: 12.0),
+            child: Text(
+              skilText,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            margin:
+                EdgeInsets.only(left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+            child: Text(
+              mainText,
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            ),
+          ),
         ],
       ),
     ),
@@ -233,7 +259,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(25.0),
+                  Radius.circular(15.0),
                 ),
               ),
               child: Column(
@@ -326,12 +352,22 @@ _launchURL(String url) async {
 
 Widget _areaTitle(String areaTitle) {
   return Container(
-    height: 120.0,
-    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
-    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 0.0),
+    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 20.0),
+    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 2.0),
+    decoration: BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          color: Colors.blue,
+          width: 4.0,
+        ),
+      ),
+    ),
     child: Text(
       areaTitle,
-      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      style: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+      ),
     ),
   );
 }
