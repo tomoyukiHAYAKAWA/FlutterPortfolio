@@ -352,12 +352,22 @@ _launchURL(String url) async {
 
 Widget _areaTitle(String areaTitle) {
   return Container(
-    height: 120.0,
-    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
-    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 0.0),
+    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 20.0),
+    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 2.0),
+    decoration: BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          color: Colors.blue,
+          width: 4.0,
+        ),
+      ),
+    ),
     child: Text(
       areaTitle,
-      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      style: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+      ),
     ),
   );
 }
