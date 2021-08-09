@@ -172,10 +172,10 @@ Widget skilArea() {
     _cardGenerator("sauna.png", "サウナ", "・だいたい週1くらいで行く\n"),
   ];
   return Container(
-    height: 300.0,
+    height: 320.0,
     child: SizedBox(
-      width: 500.0,
-      height: 300.0,
+      width: 600.0,
+      height: 320.0,
       child: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.all(24.0),
@@ -197,8 +197,7 @@ Widget _cardGenerator(
   String mainText,
 ) {
   return SizedBox(
-    width: 190.0,
-    height: 240.0,
+    width: 220.0,
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
@@ -209,19 +208,31 @@ Widget _cardGenerator(
       child: Column(
         children: <Widget>[
           Container(
-            width: 80.0,
-            height: 80.0,
+            width: 100.0,
+            height: 100.0,
+            margin: EdgeInsets.only(
+                left: 12.0, right: 12.0, top: 12.0, bottom: 12.0),
             decoration: BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.fill, image: AssetImage(imageName))),
           ),
-          Text(
-            skilText,
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+          Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(
+                left: 12.0, right: 12.0, top: 0.0, bottom: 12.0),
+            child: Text(
+              skilText,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
           ),
-          Text(
-            mainText,
-            style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+          Container(
+            alignment: Alignment.centerLeft,
+            margin:
+                EdgeInsets.only(left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+            child: Text(
+              mainText,
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
@@ -248,7 +259,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(25.0),
+                  Radius.circular(15.0),
                 ),
               ),
               child: Column(
