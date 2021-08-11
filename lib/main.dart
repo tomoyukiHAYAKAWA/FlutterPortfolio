@@ -74,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _areaIcon("🔗"),
                 _areaTitle("links"),
                 linksArea(),
+                footerArea(context),
               ],
             ),
           ),
@@ -318,6 +319,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
 Widget linksArea() {
   return Container(
     width: 500.0,
+    padding: EdgeInsets.only(bottom: 20.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -354,6 +356,18 @@ _launchURL(String url) async {
   } else {
     throw 'Could not launch $url';
   }
+}
+
+Widget footerArea(BuildContext context) {
+  return Container(
+    alignment: Alignment.center,
+    width: MediaQuery.of(context).size.width,
+    color: Colors.blue,
+    child: Text(
+      "©️Tomoyuki Hayakawa",
+      style: TextStyle(color: Colors.white),
+    ),
+  );
 }
 
 Widget _areaIcon(String icon) {
