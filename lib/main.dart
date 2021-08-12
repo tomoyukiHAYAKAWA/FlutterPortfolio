@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: (() {
-          if (size.width < 600) {
+          if (size.width < 800) {
             return phoneWidgets(size);
           } else {
             return pcWidgets(size);

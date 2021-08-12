@@ -11,7 +11,7 @@ Widget pcWidgets(Size size) {
         children: <Widget>[
           _areaIcon("🚲"),
           _areaTitle("about me"),
-          flipCard(),
+          profileAreaFlont(),
           _areaIcon("💻"),
           _areaTitle("skils"),
           skilArea(),
@@ -36,104 +36,89 @@ Widget pcWidgets(Size size) {
   );
 }
 
-Widget flipCard() {
-  return Container(
-    height: 380.0,
-    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
-    child: FlipCard(
-      front: profileAreaFlont(),
-      back: profileAreaBack(),
-      direction: FlipDirection.HORIZONTAL,
-      flipOnTouch: true,
-    ),
-  );
-}
-
 Widget profileAreaFlont() {
   return SizedBox(
-    height: 380.0,
-    width: 500.0,
-    child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(25.0),
+    height: 300.0,
+    width: 800.0,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          margin:
+              EdgeInsets.only(left: 8.0, right: 8.0, top: 10.0, bottom: 0.0),
+          padding:
+              EdgeInsets.only(left: 8.0, right: 8.0, top: 10.0, bottom: 0.0),
+          width: 280.0,
+          height: 280.0,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                  fit: BoxFit.fill, image: AssetImage("self.png"))),
         ),
-      ),
-      child: Column(
-        children: <Widget>[
-          Container(
-            margin:
-                EdgeInsets.only(left: 8.0, right: 8.0, top: 20.0, bottom: 0.0),
-            padding: EdgeInsets.all(12.0),
-            width: 200.0,
-            height: 200.0,
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    fit: BoxFit.fill, image: AssetImage("self.png"))),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(
+                    left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
+                padding: EdgeInsets.only(
+                    left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+                child: Text(
+                  'iOS App Developer',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                    left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
+                padding: EdgeInsets.only(
+                    left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+                child: Text(
+                  'Tomoyuki Hayakawa',
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                    left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
+                padding: EdgeInsets.only(
+                    left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+                child: Text(
+                  '1995年生まれ / 名古屋市出身 / 東京都在住',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                    left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
+                padding: EdgeInsets.only(
+                    left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+                child: Text(
+                  '初めまして早川智之です。学生時代からiOSアプリの個人開発をしていました。現在は都内の会社でiOSエンジニアをしています。最近Dartはじめました。サウナと自転車が好きです。好きな犬種はシベリアンハスキー、アラスカンマラミュート、チャウチャウ、柴犬。',
+                ),
+              ),
+            ],
           ),
-          Container(
-            margin:
-                EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
-            padding: EdgeInsets.all(12.0),
-            child: Text(
-              'Tomoyuki Hayakawa',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            margin:
-                EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
-            padding: EdgeInsets.all(12.0),
-            child: Text(
-              '1995年生まれ / 名古屋出身 / 東京都在住 / iOS App Developer',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget profileAreaBack() {
-  return SizedBox(
-    height: 380.0,
-    width: 500.0,
-    child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(25.0),
         ),
-      ),
-      child: Column(
-        children: <Widget>[
-          Container(
-            margin:
-                EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 8.0),
-            padding: EdgeInsets.all(12.0),
-            child: Text(
-              '名古屋市出身のエンジニアです。学生時代はiOSアプリの個人開発をしていました。現在は都内の会社でiOSエンジニアをしています。サウナと自転車が好きです。好きな犬種はシベリアンハスキー、アラスカンマラミュート、チャウチャウ、柴犬。カードフリップを実装してみたくて自己紹介を書いてみました。',
-            ),
-          ),
-        ],
-      ),
+      ],
     ),
   );
 }
 
 Widget skilArea() {
   var list = [
-    _cardGenerator("swift.png", "Swift", "・業務で使用中\n・だいたい4年くらい\n・1番たくたん書いてる"),
-    _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・1年\n・便利で好き"),
-    _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・半年くらい"),
-    _cardGenerator("sauna.png", "サウナ", "・だいたい週1くらいで行く\n・1年"),
+    _cardGenerator("swift.png", "Swift", "・業務で使用中\n・経験年数4年くらい\n・1番たくたん書いてる"),
+    _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・経験年数1年\n・便利で好き"),
+    _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
+    _cardGenerator("sauna.png", "サウナ", "・だいたい週1くらいで行く\n・経験年数1年半"),
   ];
   return Container(
-    height: 320.0,
+    height: 360.0,
     child: SizedBox(
-      width: 600.0,
-      height: 320.0,
+      width: 820.0,
+      height: 360.0,
       child: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.all(24.0),
@@ -155,11 +140,11 @@ Widget _cardGenerator(
   String mainText,
 ) {
   return SizedBox(
-    width: 220.0,
+    width: 240.0,
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(12.0),
+          Radius.circular(20.0),
         ),
       ),
       margin: EdgeInsets.all(12.0),
@@ -180,7 +165,7 @@ Widget _cardGenerator(
                 left: 12.0, right: 12.0, top: 0.0, bottom: 12.0),
             child: Text(
               skilText,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           Container(
@@ -189,7 +174,7 @@ Widget _cardGenerator(
                 EdgeInsets.only(left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
             child: Text(
               mainText,
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 14),
             ),
           ),
         ],
@@ -200,7 +185,7 @@ Widget _cardGenerator(
 
 Widget timelineCard(String titleText, String subTitleText, String mainText) {
   return Container(
-    width: 600.0,
+    width: 800.0,
     margin: EdgeInsets.only(left: 12.0, right: 12.0, top: 24.0, bottom: 24.0),
     child: Row(
       children: <Widget>[
@@ -213,11 +198,11 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
         ),
         Expanded(
           child: SizedBox(
-            width: 500.0,
+            width: 700.0,
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(15.0),
+                  Radius.circular(20.0),
                 ),
               ),
               child: Column(
@@ -232,7 +217,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
                       titleText,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 12.0,
+                          fontSize: 16.0,
                           color: Colors.grey),
                     ),
                   ),
@@ -244,7 +229,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
                     child: Text(
                       subTitleText,
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16.0),
+                          fontWeight: FontWeight.bold, fontSize: 20.0),
                     ),
                   ),
                   Container(
@@ -254,8 +239,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
                         left: 12.0, right: 12.0, top: 0.0, bottom: 8.0),
                     child: Text(
                       mainText,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 12.0),
+                      style: TextStyle(fontSize: 16.0),
                     ),
                   ),
                 ],
@@ -326,7 +310,7 @@ Widget _areaIcon(String icon) {
     padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 2.0),
     child: Text(
       icon,
-      style: TextStyle(fontSize: 32),
+      style: TextStyle(fontSize: 36),
     ),
   );
 }
@@ -346,7 +330,7 @@ Widget _areaTitle(String areaTitle) {
     child: Text(
       areaTitle,
       style: TextStyle(
-        fontSize: 24,
+        fontSize: 26,
         fontWeight: FontWeight.bold,
       ),
     ),
