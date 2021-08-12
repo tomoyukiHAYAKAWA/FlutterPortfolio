@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _areaIcon("🔗"),
                 _areaTitle("links"),
                 linksArea(),
-                footerArea(context),
+                footerArea(),
               ],
             ),
           ),
@@ -358,10 +358,9 @@ _launchURL(String url) async {
   }
 }
 
-Widget footerArea(BuildContext context) {
+Widget footerArea() {
   return Container(
     alignment: Alignment.center,
-    width: MediaQuery.of(context).size.width,
     color: Colors.blue,
     child: Text(
       "©️Tomoyuki Hayakawa",
