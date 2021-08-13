@@ -11,20 +11,9 @@ class PCWidgets extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             _ProfileArea(),
-            _areaTitle("💻", "skils"),
-            skilArea(),
-            _areaTitle("🦒", "timeline"),
-            timelineCard(
-              "〜2020年3月",
-              "学生時代",
-              "・高校では情報科を専攻し、高校2年から簡単なプログラミングを開始する\n・高校3年で独学でiOSアプリをリリース\n・大学でも個人開発を続ける\n・Life is Tech ! でiPhoneアプリ開発を中高生に教えるインターンをする",
-            ),
-            timelineCard("2020年4月〜2021年4月", "社会人1年目",
-                "・株式会社アイスタイルに新卒入社\n・入社に伴って東京都に引っ越す\n・アプリ開発グループiOSチームに配属\n・最初のプロジェクトはログインスキップ対応\n・社内サイネージの開発のためVue.jsを初めて扱う"),
-            timelineCard("2021年4月〜現在", "社会人2年目",
-                "・徐々に一人でプロジェクトを任されるようになる\n・Flutter開発をしてみたくてDartに手を出してみる"),
-            _areaTitle("🔗", "links"),
-            linksArea(),
+            _SkilArea(),
+            _TimelineArea(),
+            _LinksArea(),
             footerArea(),
           ],
         ),
@@ -122,31 +111,44 @@ class _ProfileArea extends StatelessWidget {
   }
 }
 
-Widget skilArea() {
-  var list = [
-    _cardGenerator("swift.png", "Swift", "・業務で使用中\n・経験年数4年くらい\n・1番たくたん書いてる"),
-    _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・経験年数1年\n・便利で好き"),
-    _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
-    _cardGenerator("sauna.png", "サウナ", "・だいたい週1くらいで行く\n・経験年数1年半"),
-  ];
-  return Container(
-    height: 360.0,
-    child: SizedBox(
-      width: 820.0,
-      height: 360.0,
-      child: Container(
-        alignment: Alignment.center,
-        margin: EdgeInsets.all(24.0),
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: list.length,
-          itemBuilder: (context, index) {
-            return list[index];
-          },
-        ),
+class _SkilArea extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var list = [
+      _cardGenerator("swift.png", "Swift", "・業務で使用中\n・1番たくたん書いてる"),
+      _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
+      _cardGenerator("flutter.png", "Flutter", "・このサイトを制作するために使用\n・最近ハマり中"),
+      _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
+      _cardGenerator(
+          "sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・だいたい週1くらいで行く\n・サウナー歴1年半"),
+    ];
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: Column(
+        children: <Widget>[
+          _areaTitle("💻", "skills"),
+          Container(
+            padding: EdgeInsets.only(top: 100.0, bottom: 150.0),
+            child: SizedBox(
+              width: 820.0,
+              height: 360.0,
+              child: Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.all(24.0),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: list.length,
+                  itemBuilder: (context, index) {
+                    return list[index];
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
-    ),
-  );
+    );
+  }
 }
 
 Widget _cardGenerator(
@@ -156,6 +158,7 @@ Widget _cardGenerator(
 ) {
   return SizedBox(
     width: 240.0,
+    height: 360.0,
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
@@ -198,7 +201,31 @@ Widget _cardGenerator(
   );
 }
 
-Widget timelineCard(String titleText, String subTitleText, String mainText) {
+class _TimelineArea extends StatelessWidget {
+  var titleTitles = ["〜2020年3月", "2020年4月〜2021年4月", "2021年4月〜現在"];
+  var subTitles = ["学生時代", "社会人1年目", "社会人2年目"];
+  var mains = [
+    "・高校では情報科を専攻し、高校2年から簡単なプログラミングを開始する\n・高校3年で独学でiOSアプリをリリース\n・大学でも個人開発を続ける\n・Life is Tech ! でiPhoneアプリ開発を中高生に教えるインターンをする",
+    "・株式会社アイスタイルに新卒入社\n・入社に伴って東京都に引っ越す\n・アプリ開発グループiOSチームに配属\n・最初のプロジェクトはログインスキップ対応\n・社内サイネージの開発のためVue.jsを初めて扱う",
+    "・徐々に一人でプロジェクトを任されるようになる\n・Flutter開発をしてみたくてDartに手を出してみる"
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          _areaTitle("🦒", "timeline"),
+          for (int i = 0; i < this.titleTitles.length; i++)
+            _timelineCard(titleTitles[i], subTitles[i], mains[i]),
+        ],
+      ),
+    );
+  }
+}
+
+Widget _timelineCard(String titleText, String subTitleText, String mainText) {
   return Container(
     width: 800.0,
     margin: EdgeInsets.only(left: 12.0, right: 12.0, top: 24.0, bottom: 24.0),
@@ -232,7 +259,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
                       titleText,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
+                          fontSize: 14.0,
                           color: Colors.grey),
                     ),
                   ),
@@ -244,7 +271,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
                     child: Text(
                       subTitleText,
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20.0),
+                          fontWeight: FontWeight.bold, fontSize: 18.0),
                     ),
                   ),
                   Container(
@@ -254,7 +281,7 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
                         left: 12.0, right: 12.0, top: 0.0, bottom: 8.0),
                     child: Text(
                       mainText,
-                      style: TextStyle(fontSize: 16.0),
+                      style: TextStyle(fontSize: 14.0),
                     ),
                   ),
                 ],
@@ -267,22 +294,35 @@ Widget timelineCard(String titleText, String subTitleText, String mainText) {
   );
 }
 
-Widget linksArea() {
-  return Container(
-    width: 500.0,
-    padding: EdgeInsets.only(bottom: 20.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        _linkIconGenerator(
-            "GitHubIcon.png", "https://github.com/tomoyukiHAYAKAWA"),
-        _linkIconGenerator(
-            "twitterIcon.png", "https://twitter.com/hayakawa_tomoe"),
-        _linkIconGenerator(
-            "facebookIcon.png", "https://www.facebook.com/hayakawatomoyuki"),
-      ],
-    ),
-  );
+class _LinksArea extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: 500.0,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          _areaTitle("🔗", "links"),
+          Container(
+            padding: EdgeInsets.only(top: 100.0, bottom: 150.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _linkIconGenerator(
+                    "GitHubIcon.png", "https://github.com/tomoyukiHAYAKAWA"),
+                _linkIconGenerator(
+                    "twitterIcon.png", "https://twitter.com/hayakawa_tomoe"),
+                _linkIconGenerator("facebookIcon.png",
+                    "https://www.facebook.com/hayakawatomoyuki"),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 Widget _linkIconGenerator(String imageName, String url) {
