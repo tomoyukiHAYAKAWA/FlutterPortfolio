@@ -39,13 +39,18 @@ class _ProfileArea extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       width: 800.0,
-      child: Center(
+      child: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            _areaTitle("🚲", "about me"),
-            Expanded(
+            Container(
+              child: _areaTitle("🚲", "about me"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 100.0, bottom: 150.0),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.only(
