@@ -1,110 +1,120 @@
 import 'package:flutter/material.dart';
-import 'package:flip_card/flip_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-Widget pcWidgets(Size size) {
-  return Container(
-    width: size.width,
-    child: SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          _areaIcon("🚲"),
-          _areaTitle("about me"),
-          profileAreaFlont(),
-          _areaIcon("💻"),
-          _areaTitle("skils"),
-          skilArea(),
-          _areaIcon("🦒"),
-          _areaTitle("timeline"),
-          timelineCard(
-            "〜2020年3月",
-            "学生時代",
-            "・高校では情報科を専攻し、高校2年から簡単なプログラミングを開始する\n・高校3年で独学でiOSアプリをリリース\n・大学でも個人開発を続ける\n・Life is Tech ! でiPhoneアプリ開発を中高生に教えるインターンをする",
-          ),
-          timelineCard("2020年4月〜2021年4月", "社会人1年目",
-              "・株式会社アイスタイルに新卒入社\n・入社に伴って東京都に引っ越す\n・アプリ開発グループiOSチームに配属\n・最初のプロジェクトはログインスキップ対応\n・社内サイネージの開発のためVue.jsを初めて扱う"),
-          timelineCard("2021年4月〜現在", "社会人2年目",
-              "・徐々に一人でプロジェクトを任されるようになる\n・Flutter開発をしてみたくてDartに手を出してみる"),
-          _areaIcon("🔗"),
-          _areaTitle("links"),
-          linksArea(),
-          footerArea(),
-        ],
+class PCWidgets extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            _ProfileArea(),
+            _areaTitle("💻", "skils"),
+            skilArea(),
+            _areaTitle("🦒", "timeline"),
+            timelineCard(
+              "〜2020年3月",
+              "学生時代",
+              "・高校では情報科を専攻し、高校2年から簡単なプログラミングを開始する\n・高校3年で独学でiOSアプリをリリース\n・大学でも個人開発を続ける\n・Life is Tech ! でiPhoneアプリ開発を中高生に教えるインターンをする",
+            ),
+            timelineCard("2020年4月〜2021年4月", "社会人1年目",
+                "・株式会社アイスタイルに新卒入社\n・入社に伴って東京都に引っ越す\n・アプリ開発グループiOSチームに配属\n・最初のプロジェクトはログインスキップ対応\n・社内サイネージの開発のためVue.jsを初めて扱う"),
+            timelineCard("2021年4月〜現在", "社会人2年目",
+                "・徐々に一人でプロジェクトを任されるようになる\n・Flutter開発をしてみたくてDartに手を出してみる"),
+            _areaTitle("🔗", "links"),
+            linksArea(),
+            footerArea(),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
 
-Widget profileAreaFlont() {
-  return SizedBox(
-    height: 300.0,
-    width: 800.0,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          margin:
-              EdgeInsets.only(left: 8.0, right: 8.0, top: 10.0, bottom: 0.0),
-          padding:
-              EdgeInsets.only(left: 8.0, right: 8.0, top: 10.0, bottom: 0.0),
-          width: 280.0,
-          height: 280.0,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  fit: BoxFit.fill, image: AssetImage("self.png"))),
+class _ProfileArea extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height,
+      width: 800.0,
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            _areaTitle("🚲", "about me"),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
+                    padding: EdgeInsets.only(
+                        left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
+                    width: 280.0,
+                    height: 280.0,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            fit: BoxFit.fill, image: AssetImage("self.png"))),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Container(
+                          margin: EdgeInsets.only(
+                              left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
+                          padding: EdgeInsets.only(
+                              left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+                          child: Text(
+                            'iOS App Developer',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
+                          padding: EdgeInsets.only(
+                              left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+                          child: Text(
+                            'Tomoyuki Hayakawa',
+                            style: TextStyle(
+                                fontSize: 32, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
+                          padding: EdgeInsets.only(
+                              left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+                          child: Text(
+                            '1995年生まれ / 名古屋市出身 / 東京都在住',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
+                          padding: EdgeInsets.only(
+                              left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
+                          child: Text(
+                            '初めまして早川智之です。学生時代からiOSアプリの個人開発をしていました。現在は都内の会社でiOSエンジニアをしています。最近Dartはじめました。サウナと自転車が好きです。好きな犬種はシベリアンハスキー、アラスカンマラミュート、チャウチャウ、柴犬。',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(
-                    left: 8.0, right: 8.0, top: 0.0, bottom: 0.0),
-                padding: EdgeInsets.only(
-                    left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
-                child: Text(
-                  'iOS App Developer',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
-                padding: EdgeInsets.only(
-                    left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
-                child: Text(
-                  'Tomoyuki Hayakawa',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
-                padding: EdgeInsets.only(
-                    left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
-                child: Text(
-                  '1995年生まれ / 名古屋市出身 / 東京都在住',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    left: 8.0, right: 8.0, top: 8.0, bottom: 0.0),
-                padding: EdgeInsets.only(
-                    left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
-                child: Text(
-                  '初めまして早川智之です。学生時代からiOSアプリの個人開発をしていました。現在は都内の会社でiOSエンジニアをしています。最近Dartはじめました。サウナと自転車が好きです。好きな犬種はシベリアンハスキー、アラスカンマラミュート、チャウチャウ、柴犬。',
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    ),
-  );
+      ),
+    );
+  }
 }
 
 Widget skilArea() {
@@ -305,20 +315,10 @@ Widget footerArea() {
   );
 }
 
-Widget _areaIcon(String icon) {
+Widget _areaTitle(String icon, String areaTitle) {
   return Container(
+    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 2.0),
     padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 50.0, bottom: 2.0),
-    child: Text(
-      icon,
-      style: TextStyle(fontSize: 36),
-    ),
-  );
-}
-
-Widget _areaTitle(String areaTitle) {
-  return Container(
-    margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 0.0, bottom: 20.0),
-    padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 2.0),
     decoration: BoxDecoration(
       border: Border(
         bottom: BorderSide(
@@ -327,12 +327,20 @@ Widget _areaTitle(String areaTitle) {
         ),
       ),
     ),
-    child: Text(
-      areaTitle,
-      style: TextStyle(
-        fontSize: 26,
-        fontWeight: FontWeight.bold,
-      ),
+    child: Column(
+      children: <Widget>[
+        Text(
+          icon,
+          style: TextStyle(fontSize: 36),
+        ),
+        Text(
+          areaTitle,
+          style: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     ),
   );
 }

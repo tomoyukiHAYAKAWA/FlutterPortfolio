@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
           if (size.width < 800) {
             return phoneWidgets(size);
           } else {
-            return pcWidgets(size);
+            return PCWidgets();
           }
         })(),
       ),
