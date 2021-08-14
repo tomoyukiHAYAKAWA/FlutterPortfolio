@@ -119,8 +119,7 @@ class _SkilArea extends StatelessWidget {
       _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
       _cardGenerator("flutter.png", "Flutter", "・このサイトを制作するために使用\n・最近ハマり中"),
       _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
-      _cardGenerator(
-          "sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・だいたい週1くらいで行く\n・サウナー歴1年半"),
+      _cardGenerator("sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・サウナー歴1年半"),
     ];
     return Container(
       height: 540.0,
