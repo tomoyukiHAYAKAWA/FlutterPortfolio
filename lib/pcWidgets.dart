@@ -119,16 +119,15 @@ class _SkilArea extends StatelessWidget {
       _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
       _cardGenerator("flutter.png", "Flutter", "・このサイトを制作するために使用\n・最近ハマり中"),
       _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
-      _cardGenerator(
-          "sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・だいたい週1くらいで行く\n・サウナー歴1年半"),
+      _cardGenerator("sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・サウナー歴1年半"),
     ];
     return Container(
-      height: MediaQuery.of(context).size.height,
+      height: 540.0,
       child: Column(
         children: <Widget>[
           _areaTitle("💻", "skills"),
           Container(
-            padding: EdgeInsets.only(top: 100.0, bottom: 150.0),
+            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
             child: SizedBox(
               width: 820.0,
               height: 360.0,
@@ -298,7 +297,7 @@ class _LinksArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      height: 300.0,
       width: 500.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -306,7 +305,7 @@ class _LinksArea extends StatelessWidget {
         children: <Widget>[
           _areaTitle("🔗", "links"),
           Container(
-            padding: EdgeInsets.only(top: 100.0, bottom: 150.0),
+            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
