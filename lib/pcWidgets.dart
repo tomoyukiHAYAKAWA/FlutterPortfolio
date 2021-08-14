@@ -51,7 +51,8 @@ class _ProfileArea extends StatelessWidget {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                            fit: BoxFit.fill, image: AssetImage("self.png"))),
+                            fit: BoxFit.fill,
+                            image: AssetImage("/images/self.png"))),
                   ),
                   Expanded(
                     child: Column(
@@ -115,11 +116,14 @@ class _SkilArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var list = [
-      _cardGenerator("swift.png", "Swift", "・業務で使用中\n・1番たくたん書いてる"),
-      _cardGenerator("rxswift.png", "RxSwift", "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
-      _cardGenerator("flutter.png", "Flutter", "・このサイトを制作するために使用\n・最近ハマり中"),
-      _cardGenerator("vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
-      _cardGenerator("sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・サウナー歴1年半"),
+      _cardGenerator("/images/swift.png", "Swift", "・業務で使用中\n・1番たくたん書いてる"),
+      _cardGenerator(
+          "/images/rxswift.png", "RxSwift", "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
+      _cardGenerator(
+          "/images/flutter.png", "Flutter", "・このサイトを制作するために使用\n・最近ハマり中"),
+      _cardGenerator("/images/vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
+      _cardGenerator(
+          "/images/sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・サウナー歴1年半"),
     ];
     return Container(
       height: 540.0,
@@ -309,11 +313,11 @@ class _LinksArea extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                _linkIconGenerator(
-                    "GitHubIcon.png", "https://github.com/tomoyukiHAYAKAWA"),
-                _linkIconGenerator(
-                    "twitterIcon.png", "https://twitter.com/hayakawa_tomoe"),
-                _linkIconGenerator("facebookIcon.png",
+                _linkIconGenerator("/images/GitHubIcon.png",
+                    "https://github.com/tomoyukiHAYAKAWA"),
+                _linkIconGenerator("/images/twitterIcon.png",
+                    "https://twitter.com/hayakawa_tomoe"),
+                _linkIconGenerator("/images/facebookIcon.png",
                     "https://www.facebook.com/hayakawatomoyuki"),
               ],
             ),
