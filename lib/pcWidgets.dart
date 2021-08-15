@@ -52,7 +52,7 @@ class _ProfileArea extends StatelessWidget {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage("/images/self.png"))),
+                            image: AssetImage("assets/images/self.png"))),
                   ),
                   Expanded(
                     child: Column(
@@ -116,14 +116,15 @@ class _SkilArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var list = [
-      _cardGenerator("/images/swift.png", "Swift", "・業務で使用中\n・1番たくたん書いてる"),
       _cardGenerator(
-          "/images/rxswift.png", "RxSwift", "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
+          "assets/images/swift.png", "Swift", "・業務で使用中\n・1番たくたん書いてる"),
+      _cardGenerator("assets/images/rxswift.png", "RxSwift",
+          "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
       _cardGenerator(
-          "/images/flutter.png", "Flutter", "・このサイトを制作するために使用\n・最近ハマり中"),
-      _cardGenerator("/images/vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
+          "assets/images/flutter.png", "Flutter", "・このサイトを制作するために使用\n・最近ハマり中"),
+      _cardGenerator("assets/images/vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
       _cardGenerator(
-          "/images/sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・サウナー歴1年半"),
+          "assets/images/sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・サウナー歴1年半"),
     ];
     return Container(
       height: 540.0,
@@ -313,11 +314,11 @@ class _LinksArea extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                _linkIconGenerator("/images/GitHubIcon.png",
+                _linkIconGenerator("assets/images/GitHubIcon.png",
                     "https://github.com/tomoyukiHAYAKAWA"),
-                _linkIconGenerator("/images/twitterIcon.png",
+                _linkIconGenerator("assets/images/twitterIcon.png",
                     "https://twitter.com/hayakawa_tomoe"),
-                _linkIconGenerator("/images/facebookIcon.png",
+                _linkIconGenerator("assets/images/facebookIcon.png",
                     "https://www.facebook.com/hayakawatomoyuki"),
               ],
             ),
