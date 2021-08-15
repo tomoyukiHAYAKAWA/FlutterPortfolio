@@ -96,7 +96,7 @@ class _ProfileArea extends StatelessWidget {
                           padding: EdgeInsets.only(
                               left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
                           child: Text(
-                            '初めまして早川智之です。学生時代からiOSアプリの個人開発をしていました。現在は都内の会社でiOSエンジニアをしています。最近Dartはじめました。サウナと自転車が好きです。好きな犬種はシベリアンハスキー、アラスカンマラミュート、チャウチャウ、柴犬。',
+                            '初めまして早川智之です。学生時代からiOSアプリの個人開発をしていました。現在は都内の会社でiOSエンジニアをしています。最近Flutterはじめました。サウナと自転車が好きです。好きな犬種はシベリアンハスキー、アラスカンマラミュート、チャウチャウ、柴犬。',
                           ),
                         ),
                       ],
@@ -117,7 +117,7 @@ class _SkilArea extends StatelessWidget {
   Widget build(BuildContext context) {
     var list = [
       _cardGenerator(
-          "assets/images/swift.png", "Swift", "・業務で使用中\n・1番たくたん書いてる"),
+          "assets/images/swift.png", "Swift", "・業務で使用中\n・1番たくさん書いてる"),
       _cardGenerator("assets/images/rxswift.png", "RxSwift",
           "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
       _cardGenerator(

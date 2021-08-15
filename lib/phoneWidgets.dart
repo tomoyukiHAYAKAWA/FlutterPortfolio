@@ -90,7 +90,7 @@ class _SkilArea extends StatelessWidget {
   Widget build(BuildContext context) {
     var list = [
       _cardGenerator(
-          "assets/images/swift.png", "Swift", "・業務で使用中\n・1番たくたん書いてる"),
+          "assets/images/swift.png", "Swift", "・業務で使用中\n・1番たくさん書いてる"),
       _cardGenerator("assets/images/rxswift.png", "RxSwift",
           "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
       _cardGenerator(
