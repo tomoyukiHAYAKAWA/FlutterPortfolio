@@ -96,7 +96,7 @@ class _ProfileArea extends StatelessWidget {
                           padding: EdgeInsets.only(
                               left: 12.0, right: 12.0, top: 0.0, bottom: 0.0),
                           child: Text(
-                            '初めまして早川智之です。学生時代からiOSアプリの個人開発をしていました。現在は都内の会社でiOSエンジニアをしています。最近Flutterはじめました。サウナと自転車が好きです。好きな犬種はシベリアンハスキー、アラスカンマラミュート、チャウチャウ、柴犬。',
+                            '初めまして早川智之です。学生時代からiOSアプリの個人開発をしていました。現在は都内の会社でiOSエンジニアをしています。サウナと自転車が好きです。サウナスパ健康アドバイザーの資格を取りました。好きな犬種はシベリアンハスキー、アラスカンマラミュート、チャウチャウ、柴犬。',
                           ),
                         ),
                       ],
@@ -116,15 +116,15 @@ class _SkilArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var list = [
+      _cardGenerator("assets/images/swift.png", "Swift", "・業務で使用中\n・4年"),
       _cardGenerator(
-          "assets/images/swift.png", "Swift", "・業務で使用中\n・1番たくさん書いてる"),
-      _cardGenerator("assets/images/rxswift.png", "RxSwift",
-          "・業務で使用中\n・ちょっと慣れてきた\n・便利で好き"),
+          "assets/images/swiftui.png", "SwiftUI", "・個人開発、業務で使用中\n・半年"),
+      _cardGenerator("assets/images/rxswift.png", "RxSwift", "・業務で使用中\n・2年"),
+      _cardGenerator("assets/images/flutter.png", "Flutter",
+          "・このサイトを制作するために使用\n・最近ハマってます"),
+      _cardGenerator("assets/images/vue.png", "Vue", "・社内サイネージ開発で使用\n・あまり使わない"),
       _cardGenerator(
-          "assets/images/flutter.png", "Flutter", "・このサイトを制作するために使用\n・最近ハマり中"),
-      _cardGenerator("assets/images/vue.png", "Vue", "・社内サイネージ開発で使用\n・経験半年くらい"),
-      _cardGenerator(
-          "assets/images/sauna.png", "サウナ", "・ホームサウナ：武蔵小山温泉清水湯\n・サウナー歴1年半"),
+          "assets/images/sauna.png", "サウナ", "・ホームサウナ：舞浜ユーラシア\n・サウナー歴2年"),
     ];
     return Container(
       height: 540.0,
@@ -210,8 +210,8 @@ class _TimelineArea extends StatelessWidget {
   var subTitles = ["学生時代", "社会人1年目", "社会人2年目"];
   var mains = [
     "・高校では情報科を専攻し、高校2年から簡単なプログラミングを開始する\n・高校3年で独学でiOSアプリをリリース\n・大学でも個人開発を続ける\n・Life is Tech ! でiPhoneアプリ開発を中高生に教えるインターンをする",
-    "・株式会社アイスタイルに新卒入社\n・入社に伴って東京都に引っ越す\n・アプリ開発グループiOSチームに配属\n・最初のプロジェクトはログインスキップ対応\n・社内サイネージの開発のためVue.jsを初めて扱う",
-    "・徐々に一人でプロジェクトを任されるようになる\n・Flutter開発をしてみたくてDartに手を出してみる"
+    "・2020年に現在の会社に新卒入社\n・入社に伴って東京都に引っ越す\n・アプリ開発グループiOSチームに配属\n・社内サイネージの開発のためVue.jsを初めて扱う",
+    "・Flutter開発をしてみたくてDartに手を出してみる\n・サウナスパ健康アドバイザー取得"
   ];
   @override
   Widget build(BuildContext context) {
@@ -317,7 +317,7 @@ class _LinksArea extends StatelessWidget {
                 _linkIconGenerator("assets/images/GitHubIcon.png",
                     "https://github.com/tomoyukiHAYAKAWA"),
                 _linkIconGenerator("assets/images/twitterIcon.png",
-                    "https://twitter.com/hayakawa_tomoe"),
+                    "https://twitter.com/hykwtmyk"),
                 _linkIconGenerator("assets/images/facebookIcon.png",
                     "https://www.facebook.com/hayakawatomoyuki"),
               ],
